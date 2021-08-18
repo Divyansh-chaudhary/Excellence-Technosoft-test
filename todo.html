@@ -1,0 +1,83 @@
+<!-- 
+
+Question
+1 - Make a simple todo app with core JavaScript or any javascript framework you prefer, just need two features in the app 
+a) To add a todo
+b) To display all todo 
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+      }
+      .container {
+        box-shadow: 5px 5px 10px #bbb;
+        border-radius: 10px;
+        padding: 1.5rem;
+      }
+      form.todo-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form.todo-form input {
+        border: 1px solid #333;
+        border-radius: 0;
+        font-size: 1.2rem;
+      }
+      form.todo-form button {
+        border: 1px solid #333;
+        border-radius: 0;
+        padding: 3px;
+        cursor: pointer;
+      }
+      .container ul {
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form class="todo-form">
+        <input class="todo-input" type="text" />
+        <button type="submit" class="add-todo">Add</button>
+      </form>
+      <ul class="todo-list"></ul>
+    </div>
+    <script>
+      // elements
+      const addBtn = document.querySelector(".add-todo");
+      const todoInput = document.querySelector(".todo-input");
+      const todoList = document.querySelector(".todo-list");
+
+      //   functions
+      const addTodo = (e) => {
+        e.preventDefault();
+        const li = document.createElement("li");
+        li.classList.add("todo-item");
+        li.innerHTML = todoInput.value;
+        todoList.appendChild(li);
+      };
+
+      //   events
+      addBtn.onclick = addTodo;
+    </script>
+  </body>
+</html>
